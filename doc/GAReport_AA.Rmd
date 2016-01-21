@@ -73,7 +73,11 @@ In this case study, you will have to answer five questions which will help the w
 
 ## Answers
 
-1. Top 5 sites, using summary(gadata[,4], maxsum = 6):
+1. Top 5 sites
+
+```
+summary(gadata[,4], maxsum = 6):
+```
 <br>
 /aplicaciones-programas-gratuito-todas-necesidades-lista-software-libre/  - 366
 <br>
@@ -86,8 +90,46 @@ In this case study, you will have to answer five questions which will help the w
 /dos-tarjetas-sim-un-movil-revolucion-por-llegar/  - 68
 <br>
 <br>
-2. 
+2. Top sites for exits have exit rates above 90% (see below)
 <br>
+```
 gadata$ExitRate = gadata$exits / gadata$uniquePageviews
+gadata2 <- gadata[order(-gadata$exits),]
+head(gadata2)
+```
+<br>
+/404.html  - 0.9000000
+<br>
+/aplicaciones-programas-gratuito-todas-necesidades-lista-software-libre/  - 0.9750000
+<br>
+/aplicaciones-programas-gratuito-todas-necesidades-lista-software-libre/  - 1.0000000
+<br>
+/como-crear-una-plantilla-php-desde-cero/  - 1.0000000
+<br>
+/aplicaciones-programas-gratuito-todas-necesidades-lista-software-libre/  - 0.9830508
+<br>
+<br>
+3. Sites with highest average time on page all have above 1200 seconds (20 minutes)
+<br>
+```
+gadata$avg_time_on_page <- gadata$timeOnPage / (gadata$pageviews - gadata$exits)
+gadata3 <- gadata[order(-gadata$avg_time_on_page),]
+head(gadata3)
+```
 
+/como-crear-una-plantilla-php-desde-cero/  - 1721
+<br>
+/patentes-tambien-aplican-musica/  - 1629
+<br>
+/teoria-juegos-explica-viralidad-redes-sociales/  - 1542
+<br>
+/aplicaciones-programas-gratuito-valor-infinito-lista-software-libre/  - 1430
+<br>
+/radiohead-regalo-in-rainbows-ahora-no-puedes-compartir/  - 1210
+<br>
+<br>
+4. Struggled to complete
+<br>
+5. Struggled to complete
+<br>
 
